@@ -1,0 +1,97 @@
+{
+  "name": "a",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-b5599421b0c7",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "R1": {
+      "index": "0",
+      "shortname": "R1",
+      "longname": "clab-a-R1",
+      "fqdn": "R1.a.io",
+      "group": "",
+      "labdir": "/home/akira/Tools/sandbox/networking/clab_1/clab-a/R1",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-b5599421b0c7",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/akira/Tools/sandbox/networking/clab_1/clab-a/R1",
+        "clab-node-name": "R1",
+        "clab-node-type": "",
+        "clab-owner": "akira",
+        "clab-topo-file": "/home/akira/Tools/sandbox/networking/clab_1/topology.clab.yml",
+        "containerlab": "a"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R2": {
+      "index": "1",
+      "shortname": "R2",
+      "longname": "clab-a-R2",
+      "fqdn": "R2.a.io",
+      "group": "",
+      "labdir": "/home/akira/Tools/sandbox/networking/clab_1/clab-a/R2",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-b5599421b0c7",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/akira/Tools/sandbox/networking/clab_1/clab-a/R2",
+        "clab-node-name": "R2",
+        "clab-node-type": "",
+        "clab-owner": "akira",
+        "clab-topo-file": "/home/akira/Tools/sandbox/networking/clab_1/topology.clab.yml",
+        "containerlab": "a"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "R1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:6c:82:fc",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:b0:a4:d2",
+        "peer": "a"
+      }
+    }
+  ]
+}
