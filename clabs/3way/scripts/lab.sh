@@ -17,10 +17,10 @@ answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
 if [[ "$answer" == "yes" ]]; then
   echo -e "${BLUE}Proceeding...${RESET}\n"
   echo -e "Setting up the SERVER...\n"
-  docker exec -it clab-simple-SERVER sh -c ". tmp/lab_server.sh"
+  sudo docker exec -it clab-simple-SERVER sh -c ". tmp/lab_server.sh"
   echo -e "\nRunning command in the CLIENT side..."
   sleep 3
-  docker exec -it clab-simple-CLIENT sh -c ". tmp/lab_client.sh"
+  sudo docker exec -it clab-simple-CLIENT sh -c ". tmp/lab_client.sh"
   echo -e "\n${BLUE}END OF THE LAB${RESET}"
 elif [[ "$answer" == "no" ]]; then
   echo -e "\nOperation canceled."
