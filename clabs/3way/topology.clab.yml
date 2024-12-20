@@ -1,0 +1,24 @@
+name: simple
+topology:
+  nodes:
+    CLIENT:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip address add 10.0.0.10/24 dev eth1
+        - apk update
+        - apk add tcpdump
+      binds:
+        - scripts/lab_client.sh:/tmp/lab_client.sh
+    SERVER:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip address add 10.0.0.20/24 dev eth1
+        - apk update
+        - apk add python3
+      binds:
+        - ./scripts/lab_server.sh:/tmp/lab_server.sh
+
+  links:
+    - endpoints: ["SERVER:eth1", "CLIENT:eth1"]

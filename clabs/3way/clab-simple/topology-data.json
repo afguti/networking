@@ -1,0 +1,97 @@
+{
+  "name": "simple",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-a098c487a7a9",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "CLIENT": {
+      "index": "0",
+      "shortname": "CLIENT",
+      "longname": "clab-simple-CLIENT",
+      "fqdn": "CLIENT.simple.io",
+      "group": "",
+      "labdir": "/home/akira/Tools/sandbox/networking/clabs/3way/clab-simple/CLIENT",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-a098c487a7a9",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/akira/Tools/sandbox/networking/clabs/3way/clab-simple/CLIENT",
+        "clab-node-name": "CLIENT",
+        "clab-node-type": "",
+        "clab-owner": "akira",
+        "clab-topo-file": "/home/akira/Tools/sandbox/networking/clabs/3way/topology.clab.yml",
+        "containerlab": "simple"
+      },
+      "port-bindings": [
+      ]
+    },
+    "SERVER": {
+      "index": "1",
+      "shortname": "SERVER",
+      "longname": "clab-simple-SERVER",
+      "fqdn": "SERVER.simple.io",
+      "group": "",
+      "labdir": "/home/akira/Tools/sandbox/networking/clabs/3way/clab-simple/SERVER",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-a098c487a7a9",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/akira/Tools/sandbox/networking/clabs/3way/clab-simple/SERVER",
+        "clab-node-name": "SERVER",
+        "clab-node-type": "",
+        "clab-owner": "akira",
+        "clab-topo-file": "/home/akira/Tools/sandbox/networking/clabs/3way/topology.clab.yml",
+        "containerlab": "simple"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "SERVER",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:a0:a3:ec",
+        "peer": "z"
+      },
+      "z": {
+        "node": "CLIENT",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:81:9a:32",
+        "peer": "a"
+      }
+    }
+  ]
+}
