@@ -4,7 +4,7 @@ This lab is to demonstrate the TCP 3 way handshake protocol sequence. We will se
 
 [FIGURE]
 
-Once networking repository is clonned, go to `clabs/3way`. There you'll find all the packets you need. Here we run `. setup.sh`. This will setup some env variables to to save us some time tipying. We run `begin` to start the lab.
+Once networking repository is clonned, go to `clabs/3way`. There you'll find all the packets you need. Here we run `. setup.sh`. This will setup some env variables to save us some time tipying. We run `begin` to start the lab.
 Once this is done, we deploy our topology with `deploy` command. From there we can log in into CLIENT and SERVER, using the command `get`. For example to log in into SERVER `get server` should do it.
 
 ```yaml
