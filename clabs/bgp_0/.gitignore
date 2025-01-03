@@ -1,6 +1,6 @@
 # ignoring env directory
-bgp0_env
+bgp0_venv
 
 # ignoring clab directory
-clab_simple_bgp
+clab-simple-bgp
 
