@@ -1,0 +1,29 @@
+name: simple-bgp
+topology:
+  nodes:
+    R1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip address add 10.0.0.10/24 dev eth1
+        - ip address add 172.16.0.10/24 dev lo
+        - ip link set lo up
+        - apk add frr
+      binds:
+        - scripts/r1.sh:/tmp/r1.sh
+        - frr-configs/frr-r1.conf:/etc/frr/frr-r1.conf
+    R2:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip address add 10.0.0.20/24 dev eth1
+        - ip address add 172.16.1.11/24 dev lo
+        - ip link set lo up
+        - apk add frr
+        - apk add tcpdump
+      binds:
+        - scripts/r2.sh:/tmp/r2.sh
+        - frr-configs/frr-r2.conf:/etc/frr/frr-r2.conf
+
+  links:
+    - endpoints: ["R1:eth1", "R2:eth1"]
